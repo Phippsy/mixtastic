@@ -7,3 +7,8 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+// Request persistent storage so iOS won't evict localStorage
+if (navigator.storage?.persist) {
+  navigator.storage.persist();
+}
