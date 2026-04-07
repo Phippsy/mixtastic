@@ -1,13 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import pkg from './package.json'
 
 // For GitHub Pages: set base to '/<repo-name>/' e.g. '/mixtastic/'
 // For custom domain or local dev, use '/'
+const appVersion = pkg.version
+
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(appVersion),
+  },
   plugins: [
     react(),
     VitePWA({
+      filename: 'sw.js',
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
@@ -27,6 +34,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        cacheId: `mixtastic-v${appVersion}`,
         globPatterns: ['**/*.{js,css,html,svg,png,woff,woff2}'],
         // Navigation requests: try network first so updates land fast,
         // fall back to cache when offline
