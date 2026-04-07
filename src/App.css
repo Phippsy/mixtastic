@@ -504,6 +504,13 @@ select {
   min-width: 0;
 }
 
+.transition-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
 .transition-notes-edit-wrap {
   flex: 1;
   min-width: 0;
@@ -536,6 +543,14 @@ select {
   border: 1px solid rgba(239, 68, 68, 0.35);
   color: var(--red);
   background: rgba(239, 68, 68, 0.08);
+}
+
+.kill-toggle-bar {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  min-height: 24px;
+  border-radius: 999px;
 }
 
 .kill-toggle:hover:not(:disabled) {
@@ -1044,6 +1059,10 @@ select {
     flex-wrap: wrap;
   }
 
+  .transition-side-panel {
+    gap: 6px;
+  }
+
   .transition-notes-controls {
     flex-wrap: wrap;
   }
@@ -1344,6 +1363,10 @@ select {
   /* ── Transition side row: stack cues / eq / notes ── */
   .transition-side-row {
     flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .transition-side-panel {
     gap: 6px;
   }
 

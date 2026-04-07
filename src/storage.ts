@@ -21,36 +21,39 @@ function normalizeViewMode(value: unknown): EditorMode {
 
 function normalizeNotes(value: unknown): { notes: NoteEntry; kill: boolean } {
   if (typeof value === 'string') {
-    const trimmed = value.trim();
     return {
       notes: {
-        text: /^kill$/i.test(trimmed) ? '' : value,
+        text: value,
         color: 'black',
       },
-      kill: /^kill$/i.test(trimmed),
+      kill: false,
     };
   }
 
   const maybeNote = value as Partial<NoteEntry> | null;
   const text = typeof maybeNote?.text === 'string' ? maybeNote.text : '';
   const color = maybeNote?.color === 'green' || maybeNote?.color === 'red' ? maybeNote.color : 'black';
-  const trimmed = text.trim();
 
   return {
     notes: {
-      text: /^kill$/i.test(trimmed) ? '' : text,
+      text,
       color,
     },
-    kill: /^kill$/i.test(trimmed),
+    kill: false,
   };
 }
 
 function normalizeTransitionSide(side: TransitionSide | (Omit<TransitionSide, 'notes' | 'kill'> & { notes?: unknown; kill?: unknown })): TransitionSide {
   const normalizedNote = normalizeNotes(side.notes);
+  const explicitKill = typeof side.kill === 'boolean' ? side.kill : false;
+  const restoredNoteText = explicitKill && normalizedNote.notes.text.trim() === '' ? 'Kill' : normalizedNote.notes.text;
   return {
     ...side,
-    notes: normalizedNote.notes,
-    kill: typeof side.kill === 'boolean' ? side.kill || normalizedNote.kill : normalizedNote.kill,
+    notes: {
+      ...normalizedNote.notes,
+      text: restoredNoteText,
+    },
+    kill: explicitKill && restoredNoteText.trim() !== 'Kill' ? explicitKill : false,
   };
 }
 

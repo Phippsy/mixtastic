@@ -19,7 +19,6 @@ function side(
   notes = '',
   noteColor: NoteColor = 'black',
 ): TransitionSide {
-  const trimmedNotes = notes.trim();
   return {
     id: generateId(),
     cues,
@@ -27,10 +26,10 @@ function side(
     mid: eq.mid ?? null,
     high: eq.high ?? null,
     notes: {
-      text: /^kill$/i.test(trimmedNotes) ? '' : notes,
+      text: notes,
       color: noteColor,
     },
-    kill: /^kill$/i.test(trimmedNotes),
+    kill: false,
   };
 }
 
