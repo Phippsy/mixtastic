@@ -2,7 +2,7 @@ export type CueColor = 'blue' | 'green' | 'orange' | 'red';
 
 export interface CueEntry {
   id: string;
-  number: number;
+  number: number | null;
   color: CueColor;
 }
 
@@ -45,8 +45,8 @@ export function generateId(): string {
   return `id-${Date.now()}-${idCounter++}`;
 }
 
-export function createEmptyCue(): CueEntry {
-  return { id: generateId(), number: 1, color: 'blue' };
+export function createEmptyCue(number: number | null = null, color: CueColor = 'blue'): CueEntry {
+  return { id: generateId(), number, color };
 }
 
 export function createEmptyTransitionSide(): TransitionSide {
@@ -63,8 +63,14 @@ export function createEmptyTransitionSide(): TransitionSide {
 export function createEmptyTransition(): Transition {
   return {
     id: generateId(),
-    left: createEmptyTransitionSide(),
-    right: createEmptyTransitionSide(),
+    left: {
+      ...createEmptyTransitionSide(),
+      cues: [createEmptyCue(8, 'orange')],
+    },
+    right: {
+      ...createEmptyTransitionSide(),
+      cues: [createEmptyCue(2, 'orange')],
+    },
   };
 }
 

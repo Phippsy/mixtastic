@@ -26,11 +26,13 @@ export function CueList({ cues, onChange }: CueListProps) {
   }
 
   function handleNumberInput(id: string, val: string) {
+    if (val === '') {
+      updateCue(id, { number: null });
+      return;
+    }
     const n = parseInt(val, 10);
     if (!isNaN(n) && n >= 1 && n <= 8) {
       updateCue(id, { number: n });
-    } else if (val === '') {
-      updateCue(id, { number: 1 });
     }
   }
 
@@ -46,8 +48,10 @@ export function CueList({ cues, onChange }: CueListProps) {
             className="cue-number-input"
             type="text"
             inputMode="numeric"
-            value={cue.number}
+            value={cue.number ?? ''}
+            placeholder="#"
             onChange={e => handleNumberInput(cue.id, e.target.value)}
+            onFocus={e => e.target.select()}
             title="Cue number (1-8)"
           />
           <select
