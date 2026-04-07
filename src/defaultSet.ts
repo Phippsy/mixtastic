@@ -1,4 +1,5 @@
 import {
+  type NoteColor,
   type MixSet,
   type TrackPair,
   type Transition,
@@ -16,14 +17,20 @@ function side(
   cues: CueEntry[],
   eq: { low?: number; mid?: number; high?: number } = {},
   notes = '',
+  noteColor: NoteColor = 'black',
 ): TransitionSide {
+  const trimmedNotes = notes.trim();
   return {
     id: generateId(),
     cues,
     low: eq.low ?? null,
     mid: eq.mid ?? null,
     high: eq.high ?? null,
-    notes,
+    notes: {
+      text: /^kill$/i.test(trimmedNotes) ? '' : notes,
+      color: noteColor,
+    },
+    kill: /^kill$/i.test(trimmedNotes),
   };
 }
 
@@ -168,6 +175,7 @@ export function createDanfestSet(): MixSet {
     name: 'Danfest',
     createdAt: now,
     updatedAt: now,
+    viewMode: 'edit',
     pairs,
   };
 }

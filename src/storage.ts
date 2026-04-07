@@ -1,4 +1,11 @@
-import { type MixSet, type TrackPair, generateId } from './types';
+import {
+  type EditorMode,
+  type MixSet,
+  type NoteEntry,
+  type TrackPair,
+  type TransitionSide,
+  generateId,
+} from './types';
 import { createDanfestSet } from './defaultSet';
 
 const SETS_KEY = 'mixtastic-sets';
@@ -7,6 +14,60 @@ const THEME_KEY = 'mixtastic-theme';
 // Legacy keys (pre-multi-set)
 const LEGACY_PAIRS_KEY = 'mixtastic-pairs';
 const LEGACY_NAME_KEY = 'mixtastic-name';
+
+function normalizeViewMode(value: unknown): EditorMode {
+  return value === 'mix' ? 'mix' : 'edit';
+}
+
+function normalizeNotes(value: unknown): { notes: NoteEntry; kill: boolean } {
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    return {
+      notes: {
+        text: /^kill$/i.test(trimmed) ? '' : value,
+        color: 'black',
+      },
+      kill: /^kill$/i.test(trimmed),
+    };
+  }
+
+  const maybeNote = value as Partial<NoteEntry> | null;
+  const text = typeof maybeNote?.text === 'string' ? maybeNote.text : '';
+  const color = maybeNote?.color === 'green' || maybeNote?.color === 'red' ? maybeNote.color : 'black';
+  const trimmed = text.trim();
+
+  return {
+    notes: {
+      text: /^kill$/i.test(trimmed) ? '' : text,
+      color,
+    },
+    kill: /^kill$/i.test(trimmed),
+  };
+}
+
+function normalizeTransitionSide(side: TransitionSide | (Omit<TransitionSide, 'notes' | 'kill'> & { notes?: unknown; kill?: unknown })): TransitionSide {
+  const normalizedNote = normalizeNotes(side.notes);
+  return {
+    ...side,
+    notes: normalizedNote.notes,
+    kill: typeof side.kill === 'boolean' ? side.kill || normalizedNote.kill : normalizedNote.kill,
+  };
+}
+
+function normalizeSet(set: MixSet | (Omit<MixSet, 'viewMode' | 'pairs'> & { viewMode?: unknown; pairs: TrackPair[] })): MixSet {
+  return {
+    ...set,
+    viewMode: normalizeViewMode(set.viewMode),
+    pairs: set.pairs.map(pair => ({
+      ...pair,
+      transitions: pair.transitions.map(transition => ({
+        ...transition,
+        left: normalizeTransitionSide(transition.left),
+        right: normalizeTransitionSide(transition.right),
+      })),
+    })),
+  };
+}
 
 /* ── Migration from single-session format ── */
 function migrateLegacy(): MixSet[] | null {
@@ -23,6 +84,7 @@ function migrateLegacy(): MixSet[] | null {
       name,
       createdAt: now,
       updatedAt: now,
+      viewMode: 'edit',
       pairs,
     };
 
@@ -43,7 +105,7 @@ export function loadSets(): MixSet[] {
     const raw = localStorage.getItem(SETS_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed.map(normalizeSet);
     }
   } catch { /* ignore */ }
 

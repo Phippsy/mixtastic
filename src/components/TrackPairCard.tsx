@@ -6,6 +6,7 @@ import {
 import { TransitionRow } from './TransitionRow';
 
 interface TrackPairCardProps {
+  mode: 'edit' | 'mix';
   pair: TrackPair;
   index: number;
   onChange: (pair: TrackPair) => void;
@@ -18,6 +19,7 @@ interface TrackPairCardProps {
 }
 
 export function TrackPairCard({
+  mode,
   pair,
   index,
   onChange,
@@ -56,28 +58,36 @@ export function TrackPairCard({
   const outBlock = (
     <div className="pair-track-block pair-track-block-out">
       <span className="pair-track-tag pair-track-tag-out">OUT</span>
-      <input
-        className="pair-track-input"
-        type="text"
-        placeholder="Outgoing track"
-        value={pair[outTrack]}
-        onClick={e => e.stopPropagation()}
-        onChange={e => patch({ [outTrack]: e.target.value })}
-      />
+      {mode === 'edit' ? (
+        <input
+          className="pair-track-input"
+          type="text"
+          placeholder="Outgoing track"
+          value={pair[outTrack]}
+          onClick={e => e.stopPropagation()}
+          onChange={e => patch({ [outTrack]: e.target.value })}
+        />
+      ) : (
+        <div className="pair-track-display">{pair[outTrack] || 'Outgoing track'}</div>
+      )}
     </div>
   );
 
   const inBlock = (
     <div className="pair-track-block pair-track-block-in">
       <span className="pair-track-tag pair-track-tag-in">IN</span>
-      <input
-        className="pair-track-input"
-        type="text"
-        placeholder="Incoming track"
-        value={pair[inTrack]}
-        onClick={e => e.stopPropagation()}
-        onChange={e => patch({ [inTrack]: e.target.value })}
-      />
+      {mode === 'edit' ? (
+        <input
+          className="pair-track-input"
+          type="text"
+          placeholder="Incoming track"
+          value={pair[inTrack]}
+          onClick={e => e.stopPropagation()}
+          onChange={e => patch({ [inTrack]: e.target.value })}
+        />
+      ) : (
+        <div className="pair-track-display">{pair[inTrack] || 'Incoming track'}</div>
+      )}
     </div>
   );
 
@@ -104,9 +114,9 @@ export function TrackPairCard({
           >
             {pair.completed ? '✓ Done' : '✓'}
           </button>
-          <button onClick={onMoveUp} disabled={isFirst} title="Move up">↑</button>
-          <button onClick={onMoveDown} disabled={isLast} title="Move down">↓</button>
-          <button onClick={onRemove} className="btn-danger" title="Remove pair">×</button>
+          {mode === 'edit' && <button onClick={onMoveUp} disabled={isFirst} title="Move up">↑</button>}
+          {mode === 'edit' && <button onClick={onMoveDown} disabled={isLast} title="Move down">↓</button>}
+          {mode === 'edit' && <button onClick={onRemove} className="btn-danger" title="Remove pair">×</button>}
         </div>
       </div>
       {pair.expanded && (
@@ -132,15 +142,18 @@ export function TrackPairCard({
           {pair.transitions.map((t, tIdx) => (
             <TransitionRow
               key={t.id}
+              mode={mode}
               transition={t}
               index={tIdx}
               onChange={updated => updateTransition(tIdx, updated)}
               onRemove={() => removeTransition(tIdx)}
             />
           ))}
-          <button className="add-transition-inline" onClick={addTransition}>
-            + Add cue point
-          </button>
+          {mode === 'edit' && (
+            <button className="add-transition-inline" onClick={addTransition}>
+              + Add cue point
+            </button>
+          )}
         </div>
       )}
     </div>

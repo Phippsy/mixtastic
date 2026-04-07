@@ -9,6 +9,7 @@ interface SetEditorProps {
 
 export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
   const pairs = set.pairs;
+  const mode = set.viewMode;
 
   function touch(updated: Partial<MixSet>) {
     onChange({ ...set, ...updated, updatedAt: new Date().toISOString() });
@@ -66,24 +67,49 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
     }
   }
 
+  function setViewMode(viewMode: 'edit' | 'mix') {
+    touch({ viewMode });
+  }
+
   return (
     <>
       <div className="set-editor-header">
         <button className="btn-back" onClick={onBack} title="Back to sets">← Sets</button>
-        <input
-          className="mix-name-input"
-          type="text"
-          placeholder="Set name..."
-          value={set.name}
-          onChange={e => touch({ name: e.target.value })}
-        />
-        <button className="btn-secondary" onClick={clearPairs} title="Clear all pairs">Clear</button>
+        {mode === 'edit' ? (
+          <input
+            className="mix-name-input"
+            type="text"
+            placeholder="Set name..."
+            value={set.name}
+            onChange={e => touch({ name: e.target.value })}
+          />
+        ) : (
+          <div className="mix-name-display">{set.name || 'Untitled set'}</div>
+        )}
+        <div className="editor-mode-toggle" role="tablist" aria-label="Editor mode">
+          <button
+            type="button"
+            className={`mode-toggle-btn${mode === 'edit' ? ' mode-toggle-btn-active' : ''}`}
+            onClick={() => setViewMode('edit')}
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            className={`mode-toggle-btn${mode === 'mix' ? ' mode-toggle-btn-active' : ''}`}
+            onClick={() => setViewMode('mix')}
+          >
+            Mix
+          </button>
+        </div>
+        {mode === 'edit' && <button className="btn-secondary" onClick={clearPairs} title="Clear all pairs">Clear</button>}
       </div>
 
       <main className="pairs-list">
         {pairs.map((p, i) => (
           <TrackPairCard
             key={p.id}
+            mode={mode}
             pair={p}
             index={i}
             onChange={updated => updatePair(i, updated)}
@@ -97,11 +123,13 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
         ))}
       </main>
 
-      <div className="add-pair-row">
-        <button className="btn-primary" onClick={addPair}>
-          + Add Track Pair
-        </button>
-      </div>
+      {mode === 'edit' && (
+        <div className="add-pair-row">
+          <button className="btn-primary" onClick={addPair}>
+            + Add Track Pair
+          </button>
+        </div>
+      )}
     </>
   );
 }

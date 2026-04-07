@@ -1,4 +1,5 @@
 interface EqControlsProps {
+  mode: 'edit' | 'mix';
   low: number | null;
   mid: number | null;
   high: number | null;
@@ -18,11 +19,36 @@ function displayEq(val: number | null): string {
   return val === null ? '' : String(val);
 }
 
-export function EqControls({ low, mid, high, onChangeLow, onChangeMid, onChangeHigh }: EqControlsProps) {
+function getEqStateClass(val: number | null): string {
+  if (val === 0) return ' eq-input-cut';
+  if (val === 100) return ' eq-input-full';
+  if (val !== null) return ' eq-input-active';
+  return '';
+}
+
+function renderEqValue(label: string, value: number | null) {
+  return (
+    <div className={`eq-display${getEqStateClass(value)}`} title={`${label} ${value === null ? 'unset' : `${value}%`}`}>
+      {value === null ? label : value}
+    </div>
+  );
+}
+
+export function EqControls({ mode, low, mid, high, onChangeLow, onChangeMid, onChangeHigh }: EqControlsProps) {
+  if (mode === 'mix') {
+    return (
+      <div className="eq-controls eq-controls-mix">
+        {renderEqValue('L', low)}
+        {renderEqValue('M', mid)}
+        {renderEqValue('H', high)}
+      </div>
+    );
+  }
+
   return (
     <div className="eq-controls">
       <input
-        className="eq-input"
+        className={`eq-input${getEqStateClass(low)}`}
         type="number"
         min={0}
         max={100}
@@ -31,7 +57,7 @@ export function EqControls({ low, mid, high, onChangeLow, onChangeMid, onChangeH
         placeholder="L"
       />
       <input
-        className="eq-input"
+        className={`eq-input${getEqStateClass(mid)}`}
         type="number"
         min={0}
         max={100}
@@ -40,7 +66,7 @@ export function EqControls({ low, mid, high, onChangeLow, onChangeMid, onChangeH
         placeholder="M"
       />
       <input
-        className="eq-input"
+        className={`eq-input${getEqStateClass(high)}`}
         type="number"
         min={0}
         max={100}

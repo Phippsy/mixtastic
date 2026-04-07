@@ -1,4 +1,10 @@
 export type CueColor = 'blue' | 'green' | 'orange' | 'red';
+export type NoteColor = 'black' | 'green' | 'red';
+
+export interface NoteEntry {
+  text: string;
+  color: NoteColor;
+}
 
 export interface CueEntry {
   id: string;
@@ -12,7 +18,8 @@ export interface TransitionSide {
   low: number | null;
   mid: number | null;
   high: number | null;
-  notes: string;
+  notes: NoteEntry;
+  kill: boolean;
 }
 
 export interface Transition {
@@ -31,12 +38,16 @@ export interface TrackPair {
   transitions: Transition[];
 }
 
+export type EditorMode = 'edit' | 'mix';
+
 export const CUE_COLOR_VALUES: Record<CueColor, string> = {
   blue: '#3b82f6',
   green: '#22c55e',
   orange: '#f59e0b',
   red: '#ef4444',
 };
+
+export const NOTE_COLORS: NoteColor[] = ['black', 'green', 'red'];
 
 export const CUE_COLORS: CueColor[] = ['blue', 'green', 'orange', 'red'];
 
@@ -56,7 +67,11 @@ export function createEmptyTransitionSide(): TransitionSide {
     low: null,
     mid: null,
     high: null,
-    notes: '',
+    notes: {
+      text: '',
+      color: 'black',
+    },
+    kill: false,
   };
 }
 
@@ -92,6 +107,7 @@ export interface MixSet {
   name: string;
   createdAt: string;
   updatedAt: string;
+  viewMode: EditorMode;
   pairs: TrackPair[];
 }
 
@@ -102,6 +118,7 @@ export function createEmptyMixSet(name = ''): MixSet {
     name,
     createdAt: now,
     updatedAt: now,
+    viewMode: 'edit',
     pairs: [createEmptyTrackPair()],
   };
 }

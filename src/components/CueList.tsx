@@ -8,11 +8,12 @@ import {
 } from '../types';
 
 interface CueListProps {
+  mode: 'edit' | 'mix';
   cues: CueEntry[];
   onChange: (cues: CueEntry[]) => void;
 }
 
-export function CueList({ cues, onChange }: CueListProps) {
+export function CueList({ mode, cues, onChange }: CueListProps) {
   function updateCue(id: string, patch: Partial<CueEntry>) {
     onChange(cues.map(c => c.id === id ? { ...c, ...patch } : c));
   }
@@ -34,6 +35,24 @@ export function CueList({ cues, onChange }: CueListProps) {
     if (!isNaN(n) && n >= 1 && n <= 8) {
       updateCue(id, { number: n });
     }
+  }
+
+  if (mode === 'mix') {
+    return (
+      <div className="cue-list cue-list-mix">
+        {cues.map(cue => (
+          <span
+            key={cue.id}
+            className="cue-badge cue-badge-static"
+            style={{ background: CUE_COLOR_VALUES[cue.color] }}
+            title={`Cue ${cue.number ?? ''}`.trim()}
+          >
+            <span className="cue-number-static">{cue.number ?? '·'}</span>
+            <span className="cue-color-static">{cue.color[0].toUpperCase()}</span>
+          </span>
+        ))}
+      </div>
+    );
   }
 
   return (
