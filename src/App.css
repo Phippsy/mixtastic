@@ -777,6 +777,135 @@ select {
   }
 }
 
+/* ── Touch tablets / iPad (coarse pointer, ≥641px) ── */
+@media (pointer: coarse) and (min-width: 641px) {
+  html {
+    font-size: 16px;
+  }
+
+  /* Track name inputs in header */
+  .pair-track-tag {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .pair-track-input {
+    font-size: 1.15rem;
+    padding: 6px 8px;
+  }
+
+  /* Cue badges — much larger */
+  .cue-badge {
+    padding: 4px 5px;
+    font-size: 1.1rem;
+    gap: 2px;
+  }
+
+  .cue-number-input {
+    width: 26px;
+    font-size: 1.1rem;
+    padding: 2px;
+  }
+
+  .cue-color-select {
+    width: 22px;
+    font-size: 0.75rem;
+    padding: 2px;
+  }
+
+  .cue-remove-btn {
+    font-size: 1rem;
+    padding: 2px 4px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  .cue-add-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  /* EQ inputs — larger */
+  .eq-input {
+    width: 44px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 4px 3px;
+    min-height: 32px;
+  }
+
+  /* Notes: spill to own row below cues+EQ */
+  .transition-side-row {
+    flex-wrap: wrap;
+  }
+
+  .transition-notes {
+    flex-basis: 100%;
+    font-size: 0.85rem;
+    padding: 4px 5px;
+    margin-top: 2px;
+  }
+
+  /* Transition half more padding */
+  .transition-half {
+    padding: 5px 6px;
+  }
+
+  /* Header buttons bigger touch targets */
+  .pair-actions button {
+    font-size: 0.95rem;
+    padding: 4px 8px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .btn-complete,
+  .btn-complete-done {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    min-height: 32px;
+  }
+
+  /* Set list cards */
+  .set-card {
+    padding: 12px 14px;
+  }
+
+  .set-card-name {
+    font-size: 1.05rem;
+  }
+
+  .set-card-actions button {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 1rem;
+  }
+
+  .mix-name-input {
+    font-size: 1.1rem;
+    padding: 8px 10px;
+  }
+
+  .btn-back {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  .expand-toggle {
+    font-size: 1rem;
+    padding: 4px 6px;
+  }
+
+  .pair-number {
+    font-size: 0.8rem;
+  }
+
+  .transition-index {
+    font-size: 0.8rem;
+  }
+}
+
 /* ── Mobile (≤640px) ── */
 @media (max-width: 640px) {
   html {
