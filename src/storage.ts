@@ -1,4 +1,5 @@
 import { type MixSet, type TrackPair, generateId } from './types';
+import { createDanfestSet } from './defaultSet';
 
 const SETS_KEY = 'mixtastic-sets';
 const THEME_KEY = 'mixtastic-theme';
@@ -50,7 +51,10 @@ export function loadSets(): MixSet[] {
   const migrated = migrateLegacy();
   if (migrated) return migrated;
 
-  return [];
+  // First launch: load sample set
+  const sample = [createDanfestSet()];
+  saveSets(sample);
+  return sample;
 }
 
 export function saveSets(sets: MixSet[]) {
