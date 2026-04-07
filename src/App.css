@@ -674,18 +674,13 @@ select {
 }
 
 .cue-badge-static {
-  padding: 2px 5px;
-  gap: 4px;
+  padding: 2px 6px;
+  gap: 0;
 }
 
 .cue-number-static {
   min-width: 14px;
   text-align: center;
-}
-
-.cue-color-static {
-  opacity: 0.75;
-  font-size: 0.68rem;
 }
 
 .cue-number-input {

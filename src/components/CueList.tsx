@@ -48,7 +48,6 @@ export function CueList({ mode, cues, onChange }: CueListProps) {
             title={`Cue ${cue.number ?? ''}`.trim()}
           >
             <span className="cue-number-static">{cue.number ?? '·'}</span>
-            <span className="cue-color-static">{cue.color[0].toUpperCase()}</span>
           </span>
         ))}
       </div>

@@ -87,7 +87,7 @@ export function TransitionSidePanel({ mode, side, onChange }: TransitionSidePane
           onClick={() => patch({ kill: !side.kill })}
           disabled={mode === 'mix'}
         >
-          {side.kill ? 'KILL ON' : 'KILL'}
+          KILL
         </button>
       )}
     </div>
