@@ -28,7 +28,23 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff,woff2}'],
-        runtimeCaching: [],
+        // Navigation requests: try network first so updates land fast,
+        // fall back to cache when offline
+        navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/^\/mixtastic\/assets\//],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'html-cache',
+              expiration: { maxEntries: 1, maxAgeSeconds: 86400 },
+            },
+          },
+        ],
+        // Force new SW to activate immediately
+        skipWaiting: true,
+        clientsClaim: true,
       },
     }),
   ],
