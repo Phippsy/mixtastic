@@ -79,7 +79,7 @@ export function TransitionSidePanel({ mode, side, onChange }: TransitionSidePane
           ) : null
         )}
       </div>
-      {(mode === 'edit' || side.kill) && (
+      {(mode === 'edit' || (mode === 'mix' && side.kill)) && (
         <button
           className={`kill-toggle kill-toggle-bar${side.kill ? ' kill-toggle-active' : ''}`}
           type="button"
