@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/defaultset.ts","./src/main.tsx","./src/storage.ts","./src/types.ts","./src/vite-env.d.ts","./src/components/cuelist.tsx","./src/components/eqcontrols.tsx","./src/components/seteditor.tsx","./src/components/setlist.tsx","./src/components/trackpaircard.tsx","./src/components/trackpanel.tsx","./src/components/transitionrow.tsx"],"version":"5.8.3"}
