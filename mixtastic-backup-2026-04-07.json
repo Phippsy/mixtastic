@@ -1,0 +1,1372 @@
+{
+  "version": 1,
+  "exportedAt": "2026-04-07T20:37:50.841Z",
+  "sets": [
+    {
+      "id": "danfest-sample",
+      "name": "Danfest",
+      "createdAt": "2026-04-07T09:33:07.324Z",
+      "updatedAt": "2026-04-07T20:09:58.020Z",
+      "pairs": [
+        {
+          "id": "id-1775554387324-7",
+          "leftTrack": "Yuksek - I don't have a drum machine",
+          "rightTrack": "Wade in the Water - Namito",
+          "reversed": false,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-6",
+              "left": {
+                "id": "id-1775554387324-3",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-0",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": 0,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-5",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-4",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775555601724-85",
+              "left": {
+                "id": "id-1775555601724-86",
+                "cues": [
+                  {
+                    "id": "id-1775555608922-89",
+                    "number": 7,
+                    "color": "blue"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775555601724-87",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775555630154-90",
+              "left": {
+                "id": "id-1775555630154-91",
+                "cues": [
+                  {
+                    "id": "id-1775555636466-94",
+                    "number": 6,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775555630154-92",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-14",
+          "leftTrack": "Lovely Day - Nari",
+          "rightTrack": "Wade in the Water - Namito",
+          "reversed": true,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-13",
+              "left": {
+                "id": "id-1775554387324-9",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-8",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-12",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-10",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": 0,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775586697166-99",
+              "left": {
+                "id": "id-1775586697166-100",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775586697166-101",
+                "cues": [
+                  {
+                    "id": "id-1775586699252-103",
+                    "number": 5,
+                    "color": "blue"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775586770562-104",
+              "left": {
+                "id": "id-1775586770562-105",
+                "cues": [
+                  {
+                    "id": "id-1775586772171-108",
+                    "number": 3,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775586770562-106",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-21",
+          "leftTrack": "Lovely Day - Nari",
+          "rightTrack": "Spooky - Dusty Springfield",
+          "reversed": false,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-20",
+              "left": {
+                "id": "id-1775554387324-16",
+                "cues": [
+                  {
+                    "id": "id-1775586825216-110",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": 0,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-19",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-17",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775586845490-111",
+              "left": {
+                "id": "id-1775586845490-112",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775586845490-113",
+                "cues": [
+                  {
+                    "id": "id-1775586846874-115",
+                    "number": 4,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775590073566-0",
+              "left": {
+                "id": "id-1775590073566-1",
+                "cues": [
+                  {
+                    "id": "id-1775590073566-2",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Dldl up hard before exit",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775590073566-3",
+                "cues": [
+                  {
+                    "id": "id-1775590073566-4",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-27",
+          "leftTrack": "The Preacher - Wongo, Chuck Roberts",
+          "rightTrack": "Spooky - Dusty Springfield",
+          "reversed": true,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-26",
+              "left": {
+                "id": "id-1775554387324-23",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-22",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-25",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-24",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Loop on",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775586938516-116",
+              "left": {
+                "id": "id-1775586938516-117",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775586938516-118",
+                "cues": [
+                  {
+                    "id": "id-1775586939431-120",
+                    "number": 7,
+                    "color": "green"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Filter down out when hit 7 ",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-34",
+          "leftTrack": "The Preacher - Wongo, Chuck Roberts",
+          "rightTrack": "Move Your Body",
+          "reversed": false,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-33",
+              "left": {
+                "id": "id-1775554387324-30",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-28",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-32",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-31",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": 0,
+                "high": null,
+                "notes": {
+                  "text": "Loop on, gradual fade in mid range",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775586998431-121",
+              "left": {
+                "id": "id-1775586998431-122",
+                "cues": [
+                  {
+                    "id": "id-1775587002350-125",
+                    "number": 7,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775586998431-123",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Unloop",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587025904-126",
+              "left": {
+                "id": "id-1775587025904-127",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587025904-128",
+                "cues": [
+                  {
+                    "id": "id-1775587046046-130",
+                    "number": 4,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-42",
+          "leftTrack": "Love Is A State of mimd",
+          "rightTrack": "Move Your Body",
+          "reversed": true,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-41",
+              "left": {
+                "id": "id-1775554387324-36",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-35",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-40",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-37",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587096708-131",
+              "left": {
+                "id": "id-1775587096708-132",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587096708-133",
+                "cues": [
+                  {
+                    "id": "id-1775587099150-135",
+                    "number": 7,
+                    "color": "blue"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587117033-136",
+              "left": {
+                "id": "id-1775587117033-137",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587117033-138",
+                "cues": [
+                  {
+                    "id": "id-1775587118209-140",
+                    "number": 6,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-50",
+          "leftTrack": "Love Is A State of mind",
+          "rightTrack": "The bomb - bucketheads",
+          "reversed": false,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-49",
+              "left": {
+                "id": "id-1775554387324-46",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-43",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": 50,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-48",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-47",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587189728-141",
+              "left": {
+                "id": "id-1775587189728-142",
+                "cues": [
+                  {
+                    "id": "id-1775587193964-145",
+                    "number": 7,
+                    "color": "blue"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587189728-143",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587203511-146",
+              "left": {
+                "id": "id-1775587203511-147",
+                "cues": [
+                  {
+                    "id": "id-1775587204567-150",
+                    "number": 6,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587203511-148",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-58",
+          "leftTrack": "Power",
+          "rightTrack": "The bomb - bucketheads",
+          "reversed": true,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-57",
+              "left": {
+                "id": "id-1775554387324-52",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-51",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Fast fade in. Master",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-56",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-53",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587244708-151",
+              "left": {
+                "id": "id-1775587244708-152",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587244708-153",
+                "cues": [
+                  {
+                    "id": "id-1775587247989-155",
+                    "number": 5,
+                    "color": "blue"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587260091-156",
+              "left": {
+                "id": "id-1775587260091-157",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587260091-158",
+                "cues": [
+                  {
+                    "id": "id-1775587261872-160",
+                    "number": 6,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Kill",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-65",
+          "leftTrack": "Power",
+          "rightTrack": "Hideaway",
+          "reversed": false,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-64",
+              "left": {
+                "id": "id-1775554387324-60",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-59",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Fade High out",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-63",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-61",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587329375-161",
+              "left": {
+                "id": "id-1775587329375-162",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": true
+              },
+              "right": {
+                "id": "id-1775587329375-163",
+                "cues": [
+                  {
+                    "id": "id-1775587336442-165",
+                    "number": 3,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-72",
+          "leftTrack": "Hey Now",
+          "rightTrack": "Hideaway",
+          "reversed": true,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-71",
+              "left": {
+                "id": "id-1775554387324-67",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-66",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Loop on",
+                  "color": "green"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-70",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-68",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587422485-166",
+              "left": {
+                "id": "id-1775587422485-167",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Unloop",
+                  "color": "green"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587422485-168",
+                "cues": [
+                  {
+                    "id": "id-1775587433372-170",
+                    "number": 6,
+                    "color": "blue"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587468852-171",
+              "left": {
+                "id": "id-1775587468852-172",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587468852-173",
+                "cues": [
+                  {
+                    "id": "id-1775592116697-1",
+                    "number": 5,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "DLDL Out?",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775592128453-2",
+              "left": {
+                "id": "id-1775592128453-3",
+                "cues": [
+                  {
+                    "id": "id-1775592128453-4",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775592128453-5",
+                "cues": [
+                  {
+                    "id": "id-1775592128453-6",
+                    "number": 4,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": true
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-78",
+          "leftTrack": "Hey Now",
+          "rightTrack": "Hey Boy",
+          "reversed": false,
+          "expanded": false,
+          "completed": true,
+          "transitions": [
+            {
+              "id": "id-1775554387324-77",
+              "left": {
+                "id": "id-1775554387324-74",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-73",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "D",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-76",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-75",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775587528659-174",
+              "left": {
+                "id": "id-1775587528659-175",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "DLDL Out and up",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775587528659-176",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775554387324-84",
+          "leftTrack": "Born Slippy remix",
+          "rightTrack": "Hey Boy",
+          "reversed": true,
+          "expanded": true,
+          "completed": false,
+          "transitions": [
+            {
+              "id": "id-1775554387324-83",
+              "left": {
+                "id": "id-1775554387324-80",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-79",
+                    "number": 2,
+                    "color": "orange"
+                  }
+                ],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775554387324-82",
+                "cues": [
+                  {
+                    "id": "id-1775554387324-81",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775592500584-7",
+              "left": {
+                "id": "id-1775592500584-8",
+                "cues": [],
+                "low": 100,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775592500584-10",
+                "cues": [],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Cross swap bass",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            },
+            {
+              "id": "id-1775592577947-14",
+              "left": {
+                "id": "id-1775592577947-15",
+                "cues": [
+                  {
+                    "id": "id-1775592577947-16",
+                    "number": 8,
+                    "color": "orange"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775592577947-17",
+                "cues": [
+                  {
+                    "id": "id-1775592577947-18",
+                    "number": 7,
+                    "color": "blue"
+                  }
+                ],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Perfect place to up tempo",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "id-1775555785258-95",
+          "leftTrack": "Born Slippy remix",
+          "rightTrack": "",
+          "reversed": false,
+          "expanded": false,
+          "completed": false,
+          "transitions": [
+            {
+              "id": "id-1775555785258-96",
+              "left": {
+                "id": "id-1775555785258-97",
+                "cues": [],
+                "low": 0,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "",
+                  "color": "black"
+                },
+                "kill": false
+              },
+              "right": {
+                "id": "id-1775555785258-98",
+                "cues": [],
+                "low": null,
+                "mid": null,
+                "high": null,
+                "notes": {
+                  "text": "Cross-fade bass In",
+                  "color": "black"
+                },
+                "kill": false
+              }
+            }
+          ]
+        }
+      ],
+      "viewMode": "mix"
+    }
+  ]
+}

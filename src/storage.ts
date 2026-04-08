@@ -46,14 +46,16 @@ function normalizeNotes(value: unknown): { notes: NoteEntry; kill: boolean } {
 function normalizeTransitionSide(side: TransitionSide | (Omit<TransitionSide, 'notes' | 'kill'> & { notes?: unknown; kill?: unknown })): TransitionSide {
   const normalizedNote = normalizeNotes(side.notes);
   const explicitKill = typeof side.kill === 'boolean' ? side.kill : false;
-  const restoredNoteText = explicitKill && normalizedNote.notes.text.trim() === '' ? 'Kill' : normalizedNote.notes.text;
+  // Strip legacy "Kill" / "kill" note text that was wrongly stored as a note
+  const noteText = normalizedNote.notes.text;
+  const isLegacyKillNote = /^kill$/i.test(noteText.trim());
   return {
     ...side,
     notes: {
       ...normalizedNote.notes,
-      text: restoredNoteText,
+      text: isLegacyKillNote ? '' : noteText,
     },
-    kill: explicitKill && restoredNoteText.trim() !== 'Kill' ? explicitKill : false,
+    kill: explicitKill || isLegacyKillNote,
   };
 }
 

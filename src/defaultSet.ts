@@ -18,6 +18,7 @@ function side(
   eq: { low?: number; mid?: number; high?: number } = {},
   notes = '',
   noteColor: NoteColor = 'black',
+  kill = false,
 ): TransitionSide {
   return {
     id: generateId(),
@@ -29,7 +30,7 @@ function side(
       text: notes,
       color: noteColor,
     },
-    kill: false,
+    kill,
   };
 }
 
@@ -67,7 +68,7 @@ export function createDanfestSet(): MixSet {
     // Pair 1 (A=OUT, B=IN)
     pair('Yourself', 'Wade In The Water', false, [
       tx(
-        side([cue(8, 'orange'), cue(7, 'blue'), cue(6, 'blue')], { high: 0 }, 'Kill'),
+        side([cue(8, 'orange'), cue(7, 'blue'), cue(6, 'blue')], { high: 0 }, '', 'black', true),
         side([cue(2, 'orange')]),
       ),
     ]),
@@ -76,14 +77,14 @@ export function createDanfestSet(): MixSet {
     pair('Lovely Day', 'Wade In The Water', true, [
       tx(
         side([cue(2, 'orange')]),
-        side([cue(8, 'green'), cue(5, 'blue')], { high: 0 }, 'Kill'),
+        side([cue(8, 'green'), cue(5, 'blue')], { high: 0 }, '', 'black', true),
       ),
     ]),
 
     // Pair 3 (A=OUT, B=IN)
     pair('Lovely Day', 'Spacey', false, [
       tx(
-        side([cue(8, 'green')], { low: 0, mid: 0 }, 'Kill'),
+        side([cue(8, 'green')], { low: 0, mid: 0 }, '', 'black', true),
         side([cue(2, 'orange'), cue(4, 'blue')]),
       ),
     ]),
@@ -99,7 +100,7 @@ export function createDanfestSet(): MixSet {
     // Pair 5 (A=OUT, B=IN)
     pair('Preach', 'Move Your Body', false, [
       tx(
-        side([cue(8, 'orange'), cue(7, 'blue')], {}, 'Kill'),
+        side([cue(8, 'orange'), cue(7, 'blue')], {}, '', 'black', true),
         side([cue(2, 'orange')], { low: 0 }, 'Loop on. Unloop'),
       ),
     ]),
@@ -121,7 +122,7 @@ export function createDanfestSet(): MixSet {
     // Pair 7 (A=OUT, B=IN)
     pair('Love Is A Song', 'Bombs', false, [
       tx(
-        side([cue(8, 'orange'), cue(7, 'blue'), cue(6, 'blue')], { low: 0 }, 'Kill'),
+        side([cue(8, 'orange'), cue(7, 'blue'), cue(6, 'blue')], { low: 0 }, '', 'black', true),
         side([cue(2, 'orange')]),
       ),
     ]),
@@ -130,14 +131,14 @@ export function createDanfestSet(): MixSet {
     pair('Power', 'Bombs', true, [
       tx(
         side([cue(2, 'orange')], {}, 'Fast fade in. Master'),
-        side([cue(8, 'green'), cue(5, 'blue'), cue(6, 'blue')], { high: 0 }, 'Kill'),
+        side([cue(8, 'green'), cue(5, 'blue'), cue(6, 'blue')], { high: 0 }, '', 'black', true),
       ),
     ]),
 
     // Pair 9 (A=OUT, B=IN)
     pair('Power', 'Hideaway', false, [
       tx(
-        side([cue(8, 'orange')], { low: 0, mid: 0 }, 'Kill. Filter K out'),
+        side([cue(8, 'orange')], { low: 0, mid: 0 }, 'Filter K out', 'black', true),
         side([cue(2, 'orange'), cue(3, 'blue')]),
       ),
     ]),
