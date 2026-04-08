@@ -46,7 +46,8 @@ html {
 }
 
 body {
-  font-family: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', 'Fira Code', monospace;
+  font-family:
+    "SF Mono", "Cascadia Code", "JetBrains Mono", "Fira Code", monospace;
   background: var(--bg);
   color: var(--text);
   line-height: 1.4;
@@ -456,10 +457,24 @@ select {
   text-align: center;
 }
 
-.tcol-h-idx { width: 16px; flex-shrink: 0; }
-.tcol-h-cue { min-width: 60px; flex-shrink: 0; text-align: left; }
-.tcol-h-eq { width: 36px; flex-shrink: 0; }
-.tcol-h-notes { flex: 1; min-width: 0; text-align: left; }
+.tcol-h-idx {
+  width: 16px;
+  flex-shrink: 0;
+}
+.tcol-h-cue {
+  min-width: 60px;
+  flex-shrink: 0;
+  text-align: left;
+}
+.tcol-h-eq {
+  width: 36px;
+  flex-shrink: 0;
+}
+.tcol-h-notes {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
 
 /* ── Transition row ── */
 .transition-row {
@@ -851,6 +866,192 @@ select {
   flex: 1;
 }
 
+/* ── Google Drive sync controls ── */
+.sync-controls {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.sync-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sync-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-right: auto;
+}
+
+.sync-setup-prompt {
+  margin-top: 8px;
+}
+
+.sync-setup-prompt p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.sync-setup-steps {
+  margin-bottom: 10px;
+}
+
+.sync-step {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.sync-step a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.sync-step code {
+  font-size: 0.75rem;
+  background: var(--bg-card);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.sync-sign-in {
+  margin-top: 8px;
+}
+
+.sync-actions {
+  margin-top: 8px;
+}
+
+.sync-action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.sync-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+}
+
+.sync-btn:hover:not(:disabled) {
+  border-color: var(--border-light);
+  background: var(--bg-surface);
+}
+
+.sync-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sync-btn-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sync-btn-push .sync-btn-icon {
+  color: #3b82f6;
+}
+
+.sync-btn-pull .sync-btn-icon {
+  color: #22c55e;
+}
+
+.sync-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sync-btn-text strong {
+  font-size: 0.85rem;
+}
+
+.sync-btn-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.sync-status-bar {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sync-timestamps {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.sync-sign-out {
+  margin-top: 8px;
+}
+
+.sync-message {
+  font-size: 0.8rem;
+  margin-top: 8px;
+  padding: 4px 0;
+}
+
+.sync-success {
+  color: #22c55e;
+}
+
+.sync-error {
+  color: #ef4444;
+}
+
+.sync-client-id-form {
+  margin-top: 8px;
+}
+
+.sync-client-id-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.sync-client-id-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.sync-client-id-input {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: monospace;
+}
+
 .set-list-actions {
   display: flex;
   align-items: center;
@@ -896,7 +1097,9 @@ select {
   border-radius: var(--radius);
   padding: 10px 12px;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
 
 .set-card:hover {
@@ -984,7 +1187,9 @@ select {
 
 /* Prevent iOS zoom on input focus (requires ≥16px font) */
 @supports (-webkit-touch-callout: none) {
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-size: max(16px, 1em);
   }
 }
