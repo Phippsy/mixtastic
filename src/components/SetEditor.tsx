@@ -71,6 +71,13 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
     touch({ viewMode });
   }
 
+  const allExpanded = pairs.length > 0 && pairs.every(p => p.expanded);
+
+  function toggleExpandAll() {
+    const target = !allExpanded;
+    touch({ pairs: pairs.map(p => ({ ...p, expanded: target })) });
+  }
+
   return (
     <>
       <div className="set-editor-header">
@@ -102,6 +109,13 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
             Mix
           </button>
         </div>
+        <button
+          className="btn-expand-all"
+          onClick={toggleExpandAll}
+          title={allExpanded ? 'Collapse all tracks' : 'Expand all tracks'}
+        >
+          {allExpanded ? '▲' : '▼'}
+        </button>
         {mode === 'edit' && <button className="btn-secondary" onClick={clearPairs} title="Clear all pairs">Clear</button>}
       </div>
 

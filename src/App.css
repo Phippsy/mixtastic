@@ -1144,6 +1144,28 @@ select {
   margin-bottom: 8px;
 }
 
+.btn-expand-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.btn-expand-all:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
 .editor-mode-toggle {
   display: inline-flex;
   align-items: center;
