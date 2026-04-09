@@ -1,5 +1,21 @@
+import { useState } from 'react';
 import { type MixSet, type TrackPair, createEmptyTrackPair } from '../types';
 import { TrackPairCard } from './TrackPairCard';
+
+/** After reorder, recalculate `reversed` so OUT/IN columns alternate. */
+function normalizeReversed(pairs: TrackPair[]): TrackPair[] {
+  return pairs.map((pair, i) => {
+    const shouldBeReversed = i % 2 !== 0;
+    if (pair.reversed === shouldBeReversed) return pair;
+    return {
+      ...pair,
+      reversed: shouldBeReversed,
+      leftTrack: pair.rightTrack,
+      rightTrack: pair.leftTrack,
+      transitions: pair.transitions.map(t => ({ ...t, left: t.right, right: t.left })),
+    };
+  });
+}
 
 interface SetEditorProps {
   set: MixSet;
@@ -10,6 +26,8 @@ interface SetEditorProps {
 export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
   const pairs = set.pairs;
   const mode = set.viewMode;
+  const [dragIdx, setDragIdx] = useState<number | null>(null);
+  const [overIdx, setOverIdx] = useState<number | null>(null);
 
   function touch(updated: Partial<MixSet>) {
     onChange({ ...set, ...updated, updatedAt: new Date().toISOString() });
@@ -58,7 +76,7 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
     if (target < 0 || target >= pairs.length) return;
     const next = [...pairs];
     [next[index], next[target]] = [next[target], next[index]];
-    touch({ pairs: next });
+    touch({ pairs: normalizeReversed(next) });
   }
 
   function clearPairs() {
@@ -76,6 +94,34 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
   function toggleExpandAll() {
     const target = !allExpanded;
     touch({ pairs: pairs.map(p => ({ ...p, expanded: target })) });
+  }
+
+  function handleDragStart(index: number) {
+    setDragIdx(index);
+  }
+
+  function handleDragOver(index: number) {
+    if (dragIdx === null || index === dragIdx) return;
+    setOverIdx(index);
+  }
+
+  function handleDrop(index: number) {
+    if (dragIdx === null || dragIdx === index) {
+      setDragIdx(null);
+      setOverIdx(null);
+      return;
+    }
+    const next = [...pairs];
+    const [moved] = next.splice(dragIdx, 1);
+    next.splice(index, 0, moved);
+    touch({ pairs: normalizeReversed(next) });
+    setDragIdx(null);
+    setOverIdx(null);
+  }
+
+  function handleDragEnd() {
+    setDragIdx(null);
+    setOverIdx(null);
   }
 
   return (
@@ -133,6 +179,12 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
             onComplete={() => completePair(i)}
             isFirst={i === 0}
             isLast={i === pairs.length - 1}
+            isDragging={dragIdx === i}
+            isDragOver={overIdx === i}
+            onDragStart={() => handleDragStart(i)}
+            onDragOver={() => handleDragOver(i)}
+            onDrop={() => handleDrop(i)}
+            onDragEnd={handleDragEnd}
           />
         ))}
       </main>

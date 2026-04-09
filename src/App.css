@@ -237,7 +237,16 @@ select {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.track-pair-dragging {
+  opacity: 0.4;
+}
+
+.track-pair-dragover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
 }
 
 .track-pair-completed {
@@ -307,6 +316,24 @@ select {
 
 .track-pair-header:hover {
   background: var(--border);
+}
+
+.drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  font-size: 0.85rem;
+  letter-spacing: -3px;
+  color: var(--text-dim);
+  cursor: grab;
+  flex-shrink: 0;
+  user-select: none;
+  padding: 2px 0;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
 }
 
 .expand-toggle {

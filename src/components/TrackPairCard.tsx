@@ -16,6 +16,12 @@ interface TrackPairCardProps {
   onComplete: () => void;
   isFirst: boolean;
   isLast: boolean;
+  isDragging: boolean;
+  isDragOver: boolean;
+  onDragStart: () => void;
+  onDragOver: () => void;
+  onDrop: () => void;
+  onDragEnd: () => void;
 }
 
 export function TrackPairCard({
@@ -29,6 +35,12 @@ export function TrackPairCard({
   onComplete,
   isFirst,
   isLast,
+  isDragging,
+  isDragOver,
+  onDragStart,
+  onDragOver,
+  onDrop,
+  onDragEnd,
 }: TrackPairCardProps) {
   function patch(updates: Partial<TrackPair>) {
     onChange({ ...pair, ...updates });
@@ -92,8 +104,24 @@ export function TrackPairCard({
   );
 
   return (
-    <div className={`track-pair-card${pair.completed ? ' track-pair-completed' : ''}`}>
+    <div
+      className={`track-pair-card${pair.completed ? ' track-pair-completed' : ''}${isDragging ? ' track-pair-dragging' : ''}${isDragOver ? ' track-pair-dragover' : ''}`}
+      onDragOver={e => { e.preventDefault(); onDragOver(); }}
+      onDrop={e => { e.preventDefault(); onDrop(); }}
+    >
       <div className="track-pair-header" onClick={() => patch({ expanded: !pair.expanded })}>
+        {mode === 'edit' && (
+          <span
+            className="drag-handle"
+            draggable
+            onDragStart={e => { e.stopPropagation(); onDragStart(); }}
+            onDragEnd={onDragEnd}
+            onClick={e => e.stopPropagation()}
+            title="Drag to reorder"
+          >
+            ⋮⋮
+          </span>
+        )}
         <button className="expand-toggle" title={pair.expanded ? 'Collapse' : 'Expand'}>
           {pair.expanded ? '▾' : '▸'}
         </button>
