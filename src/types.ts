@@ -90,6 +90,9 @@ export function createEmptyTransition(): Transition {
 }
 
 export function createEmptyTrackPair(reversed = false): TrackPair {
+  // OUT side gets orange cue 8, IN side gets orange cue 2
+  const outSide = { ...createEmptyTransitionSide(), cues: [createEmptyCue(8, 'orange')] };
+  const inSide = { ...createEmptyTransitionSide(), cues: [createEmptyCue(2, 'orange')] };
   return {
     id: generateId(),
     leftTrack: '',
@@ -97,7 +100,11 @@ export function createEmptyTrackPair(reversed = false): TrackPair {
     reversed,
     expanded: true,
     completed: false,
-    transitions: [createEmptyTransition()],
+    transitions: [{
+      id: generateId(),
+      left: reversed ? inSide : outSide,
+      right: reversed ? outSide : inSide,
+    }],
   };
 }
 

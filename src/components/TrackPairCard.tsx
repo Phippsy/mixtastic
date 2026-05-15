@@ -22,6 +22,7 @@ interface TrackPairCardProps {
   onDragOver: () => void;
   onDrop: () => void;
   onDragEnd: () => void;
+  onSwapSides?: () => void;
 }
 
 export function TrackPairCard({
@@ -41,6 +42,7 @@ export function TrackPairCard({
   onDragOver,
   onDrop,
   onDragEnd,
+  onSwapSides,
 }: TrackPairCardProps) {
   function patch(updates: Partial<TrackPair>) {
     onChange({ ...pair, ...updates });
@@ -142,6 +144,9 @@ export function TrackPairCard({
           >
             {pair.completed ? '✓ Done' : '✓'}
           </button>
+          {mode === 'edit' && onSwapSides && (
+            <button onClick={onSwapSides} title="Swap OUT/IN sides for all pairs">⇄</button>
+          )}
           {mode === 'edit' && <button onClick={onMoveUp} disabled={isFirst} title="Move up">↑</button>}
           {mode === 'edit' && <button onClick={onMoveDown} disabled={isLast} title="Move down">↓</button>}
           {mode === 'edit' && <button onClick={onRemove} className="btn-danger" title="Remove pair">×</button>}

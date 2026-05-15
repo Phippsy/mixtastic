@@ -79,6 +79,18 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
     touch({ pairs: normalizeReversed(next) });
   }
 
+  function swapAllSides() {
+    touch({
+      pairs: pairs.map(p => ({
+        ...p,
+        reversed: !p.reversed,
+        leftTrack: p.rightTrack,
+        rightTrack: p.leftTrack,
+        transitions: p.transitions.map(t => ({ ...t, left: t.right, right: t.left })),
+      })),
+    });
+  }
+
   function clearPairs() {
     if (window.confirm('Clear all track pairs in this set? This cannot be undone.')) {
       touch({ pairs: [createEmptyTrackPair()] });
@@ -185,6 +197,7 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
             onDragOver={() => handleDragOver(i)}
             onDrop={() => handleDrop(i)}
             onDragEnd={handleDragEnd}
+            onSwapSides={i === 0 ? swapAllSides : undefined}
           />
         ))}
       </main>
