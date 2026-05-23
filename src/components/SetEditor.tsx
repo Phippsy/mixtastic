@@ -53,7 +53,7 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
 
   function removePair(index: number) {
     const next = pairs.filter((_, i) => i !== index);
-    touch({ pairs: next.length === 0 ? [createEmptyTrackPair()] : next });
+    touch({ pairs: next.length === 0 ? [createEmptyTrackPair()] : normalizeReversed(next) });
   }
 
   function addPair() {
