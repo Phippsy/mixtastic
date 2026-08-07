@@ -1,0 +1,28 @@
+{
+    "name": "sequences",
+    "private": true,
+    "version": "0.1.0",
+    "type": "module",
+    "description": "Mobile-first PWA for designing, storing, and following yoga sequences.",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc --noEmit && vite build",
+        "preview": "vite preview",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@fontsource-variable/geist": "^5.2.9",
+        "@fontsource-variable/geist-mono": "^5.2.8",
+        "@phosphor-icons/react": "^2.1.10",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.1.0",
+        "@types/react-dom": "^19.1.0",
+        "@vitejs/plugin-react": "^4.3.4",
+        "typescript": "~5.6.3",
+        "vite": "^6.0.5",
+        "vite-plugin-pwa": "^1.0.0"
+    }
+}

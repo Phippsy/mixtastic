@@ -46,6 +46,7 @@ There is **no backend**. The browser directly authenticates with Google and call
 ### Client ID Storage
 
 The Client ID is **not baked into the build** — the user enters it in the app UI and it's stored in `localStorage`. This means:
+
 - No secrets in source code
 - Different users/deployments can use different Google Cloud projects
 - The Client ID is a public identifier (not a secret), so localStorage is fine
@@ -64,12 +65,12 @@ Since it loads async, poll for availability in your component:
 
 ```typescript
 useEffect(() => {
-  if (typeof google !== 'undefined' && google.accounts?.oauth2) {
+  if (typeof google !== "undefined" && google.accounts?.oauth2) {
     setGisLoaded(true);
     return;
   }
   const timer = setInterval(() => {
-    if (typeof google !== 'undefined' && google.accounts?.oauth2) {
+    if (typeof google !== "undefined" && google.accounts?.oauth2) {
       setGisLoaded(true);
       clearInterval(timer);
     }
@@ -118,7 +119,7 @@ declare namespace google.accounts.oauth2 {
 Create a token client once you have a client ID and GIS is loaded:
 
 ```typescript
-const SCOPES = 'https://www.googleapis.com/auth/drive.file';
+const SCOPES = "https://www.googleapis.com/auth/drive.file";
 
 let tokenClient: google.accounts.oauth2.TokenClient | null = null;
 let accessToken: string | null = null;
@@ -140,7 +141,7 @@ GIS uses a popup flow. Wrap `requestAccessToken` in a Promise:
 function signIn(): Promise<void> {
   return new Promise((resolve, reject) => {
     if (!tokenClient) {
-      reject(new Error('Google auth not initialised'));
+      reject(new Error("Google auth not initialised"));
       return;
     }
     tokenClient.callback = (resp) => {
@@ -152,10 +153,10 @@ function signIn(): Promise<void> {
       resolve();
     };
     tokenClient.error_callback = (err) => {
-      reject(new Error(err.message || err.type || 'Sign-in cancelled'));
+      reject(new Error(err.message || err.type || "Sign-in cancelled"));
     };
     // prompt: '' — silently reuse existing consent if available
-    tokenClient.requestAccessToken({ prompt: '' });
+    tokenClient.requestAccessToken({ prompt: "" });
   });
 }
 ```
@@ -180,8 +181,11 @@ function signOut() {
 All Drive calls go through a helper that injects the Bearer token and handles 401 (expired):
 
 ```typescript
-async function driveRequest(url: string, options: RequestInit = {}): Promise<Response> {
-  if (!accessToken) throw new Error('Not signed in');
+async function driveRequest(
+  url: string,
+  options: RequestInit = {},
+): Promise<Response> {
+  if (!accessToken) throw new Error("Not signed in");
   const resp = await fetch(url, {
     ...options,
     headers: {
@@ -191,7 +195,7 @@ async function driveRequest(url: string, options: RequestInit = {}): Promise<Res
   });
   if (resp.status === 401) {
     accessToken = null;
-    throw new Error('Session expired. Please sign in again.');
+    throw new Error("Session expired. Please sign in again.");
   }
   if (!resp.ok) {
     const body = await resp.text();
@@ -204,9 +208,9 @@ async function driveRequest(url: string, options: RequestInit = {}): Promise<Res
 ### Constants
 
 ```typescript
-const FILE_NAME = 'your-app-data.json';
-const DRIVE_FILES_URL = 'https://www.googleapis.com/drive/v3/files';
-const DRIVE_UPLOAD_URL = 'https://www.googleapis.com/upload/drive/v3/files';
+const FILE_NAME = "your-app-data.json";
+const DRIVE_FILES_URL = "https://www.googleapis.com/drive/v3/files";
+const DRIVE_UPLOAD_URL = "https://www.googleapis.com/upload/drive/v3/files";
 ```
 
 ### Find the data file
@@ -221,10 +225,10 @@ interface DriveFileInfo {
 
 async function findFile(): Promise<DriveFileInfo | null> {
   const q = encodeURIComponent(
-    `name='${FILE_NAME}' and mimeType='application/json' and trashed=false`
+    `name='${FILE_NAME}' and mimeType='application/json' and trashed=false`,
   );
   const resp = await driveRequest(
-    `${DRIVE_FILES_URL}?q=${q}&fields=files(id,modifiedTime)&spaces=drive`
+    `${DRIVE_FILES_URL}?q=${q}&fields=files(id,modifiedTime)&spaces=drive`,
   );
   const data = await resp.json();
   const file = data.files?.[0];
@@ -240,8 +244,8 @@ Two paths: **update** an existing file, or **create** a new one.
 
 ```typescript
 await driveRequest(`${DRIVE_UPLOAD_URL}/${file.id}?uploadType=media`, {
-  method: 'PATCH',
-  headers: { 'Content-Type': 'application/json' },
+  method: "PATCH",
+  headers: { "Content-Type": "application/json" },
   body: jsonData,
 });
 ```
@@ -251,24 +255,24 @@ await driveRequest(`${DRIVE_UPLOAD_URL}/${file.id}?uploadType=media`, {
 ```typescript
 const metadata = JSON.stringify({
   name: FILE_NAME,
-  mimeType: 'application/json',
+  mimeType: "application/json",
 });
-const boundary = '---your-app-boundary';
+const boundary = "---your-app-boundary";
 const body = [
   `--${boundary}`,
-  'Content-Type: application/json; charset=UTF-8',
-  '',
+  "Content-Type: application/json; charset=UTF-8",
+  "",
   metadata,
   `--${boundary}`,
-  'Content-Type: application/json',
-  '',
+  "Content-Type: application/json",
+  "",
   jsonData,
   `--${boundary}--`,
-].join('\r\n');
+].join("\r\n");
 
 await driveRequest(`${DRIVE_UPLOAD_URL}?uploadType=multipart`, {
-  method: 'POST',
-  headers: { 'Content-Type': `multipart/related; boundary=${boundary}` },
+  method: "POST",
+  headers: { "Content-Type": `multipart/related; boundary=${boundary}` },
   body,
 });
 ```
@@ -311,7 +315,7 @@ if (data.version === 1 && Array.isArray(data.sets)) {
   // Legacy: plain array format
   return data;
 } else {
-  throw new Error('Unrecognised data format');
+  throw new Error("Unrecognised data format");
 }
 ```
 
@@ -322,8 +326,8 @@ if (data.version === 1 && Array.isArray(data.sets)) {
 Track push/pull timestamps in localStorage:
 
 ```typescript
-const LAST_PUSH_KEY = 'your-app-last-push';
-const LAST_PULL_KEY = 'your-app-last-pull';
+const LAST_PUSH_KEY = "your-app-last-push";
+const LAST_PULL_KEY = "your-app-last-pull";
 
 // After a successful push:
 localStorage.setItem(LAST_PUSH_KEY, new Date().toISOString());
@@ -339,7 +343,8 @@ if (remoteInfo && lastPush) {
   const remoteTime = new Date(remoteInfo.modifiedTime).getTime();
   const pushTime = new Date(lastPush).getTime();
   if (remoteTime > pushTime) {
-    if (!confirm('Remote data was modified since your last push. Overwrite?')) return;
+    if (!confirm("Remote data was modified since your last push. Overwrite?"))
+      return;
   }
 }
 ```
@@ -353,13 +358,17 @@ This is a **simple last-writer-wins model** with a human safety net. It doesn't 
 The sync UI has three states:
 
 ### State 1: No Client ID configured
+
 Show a "Set Up Google Drive" button → setup wizard with numbered steps → text input for the Client ID.
 
 ### State 2: Client ID saved, not signed in
+
 Show a "Sign in with Google" button. On click → GIS popup → user authorises → access token obtained.
 
 ### State 3: Signed in
+
 Show two buttons:
+
 - **Push to Drive** (↑) — uploads local data, replaces remote file
 - **Pull from Drive** (↓) — downloads remote data, replaces local data (with confirmation)
 
@@ -371,14 +380,15 @@ Plus a status bar showing local/remote set counts and last push/pull timestamps.
 
 To transfer this to another project, you need:
 
-| File | Purpose |
-|------|---------|
-| `google.d.ts` | TypeScript declarations for GIS |
-| `googleDrive.ts` | Auth + Drive API module (~250 lines) |
-| `index.html` | Add the GIS `<script>` tag |
-| Component | UI for setup, sign-in, push/pull buttons |
+| File             | Purpose                                  |
+| ---------------- | ---------------------------------------- |
+| `google.d.ts`    | TypeScript declarations for GIS          |
+| `googleDrive.ts` | Auth + Drive API module (~250 lines)     |
+| `index.html`     | Add the GIS `<script>` tag               |
+| Component        | UI for setup, sign-in, push/pull buttons |
 
 ### What to customise:
+
 - `FILE_NAME` — the name of the JSON file in Drive
 - `ExportData` type — your data shape
 - `CLIENT_ID_KEY`, `LAST_PUSH_KEY`, `LAST_PULL_KEY` — localStorage key names

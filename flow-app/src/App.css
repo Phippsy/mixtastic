@@ -1,0 +1,1071 @@
+/* ──────────────────────────────────────────────────────────────
+ * Sequences — Styles (mobile-first)
+ * Designed for 375px phone screens first, scales up gracefully.
+ * ────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg: #16131f;
+  --bg-surface: #1e1a2b;
+  --bg-card: #271f37;
+  --bg-hover: #322843;
+  --border: #372e4d;
+  --border-soft: #2c2440;
+  --text: #ece9f4;
+  --text-muted: #b3abc6;
+  --text-dim: #837a99;
+  --accent: #b29dfb;
+  --accent-strong: #a78bfa;
+  --accent-2: #5eead4;
+  --green: #4ade80;
+  --red: #f87171;
+  --amber: #fbbf24;
+  --on-accent: #1a1430;
+  /* One documented radius scale */
+  --radius-card: 18px;
+  --radius: 12px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  /* Soft ambient shadows, tinted to the background hue */
+  --shadow-soft: 0 1px 2px rgba(8, 5, 18, 0.4), 0 6px 20px -8px rgba(8, 5, 18, 0.55);
+  --shadow-pop: 0 2px 6px rgba(8, 5, 18, 0.45), 0 14px 40px -12px rgba(12, 8, 28, 0.7);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family:
+    "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tabular figures for all numeric badges / metrics */
+.mono,
+.muscle-bar-value,
+.muscle-mini-tag b,
+.muscle-mini-intensity,
+.hold-badge,
+.repeat-counter-practice,
+.section-num,
+.pose-index {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-feature-settings: "tnum" 1;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(178, 157, 251, 0.18);
+}
+
+/* Visible keyboard focus for a11y */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.app {
+  min-height: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(12px + var(--safe-top)) 12px calc(40px + var(--safe-bottom));
+}
+
+/* ── Buttons ── */
+.btn-primary,
+.btn-secondary,
+.btn-back,
+.done-btn,
+.mirror-btn,
+.add-pose-btn,
+.add-section-btn,
+.add-cue-btn,
+.muscle-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.12s var(--ease), background 0.18s var(--ease),
+    color 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.btn-primary:active,
+.btn-secondary:active,
+.btn-back:active,
+.icon-btn:active,
+.chip:active,
+.done-btn:active,
+.mirror-btn:active,
+.add-pose-btn:active,
+.add-section-btn:active,
+.seq-card:active,
+.mode-btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 650;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+}
+.btn-secondary {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+}
+.btn-secondary:disabled {
+  opacity: 0.4;
+}
+.btn-back {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.12s var(--ease), background 0.18s var(--ease),
+    color 0.18s var(--ease);
+}
+.icon-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+.icon-btn.danger {
+  color: var(--red);
+}
+.icon-btn.small {
+  min-width: 26px;
+  height: 26px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 9px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition: transform 0.12s var(--ease), background 0.18s var(--ease),
+    color 0.18s var(--ease);
+}
+.chip-active {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+  font-weight: 650;
+}
+
+/* ─────────────────────────────────────────────
+ * Sequence List (home)
+ * ───────────────────────────────────────────── */
+.list-header {
+  margin-bottom: 16px;
+}
+.app-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.app-subtitle {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+.list-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.list-actions-right {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.list-empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--text-muted);
+}
+.text-muted {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.seq-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.seq-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.14s var(--ease), box-shadow 0.18s var(--ease),
+    background 0.18s var(--ease);
+}
+.seq-card:hover {
+  box-shadow: var(--shadow-pop);
+}
+.seq-card:active {
+  background: var(--bg-card);
+}
+.seq-card-top {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-right: 70px;
+}
+.seq-card-name {
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+.seq-card-style {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  background: rgba(178, 157, 251, 0.14);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+.seq-card-intention {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+.seq-card-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+.seq-card-date {
+  margin-top: 2px;
+}
+.seq-card-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.list-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+.version-tag {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+/* ─────────────────────────────────────────────
+ * Sequence Editor
+ * ───────────────────────────────────────────── */
+.editor-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  position: sticky;
+  top: var(--safe-top);
+  background: var(--bg);
+  z-index: 20;
+  padding: 4px 0;
+}
+.seq-name-input {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+}
+.seq-name-display {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mode-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  flex-shrink: 0;
+}
+.mode-btn {
+  padding: 5px 10px;
+  color: var(--text-muted);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: background 0.18s var(--ease), color 0.18s var(--ease);
+}
+.mode-btn-active {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 650;
+}
+
+.seq-meta-edit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.style-select {
+  flex-shrink: 0;
+}
+.target-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 8px 0 0;
+}
+.target-input input {
+  width: 56px;
+  border: none;
+  background: transparent;
+}
+.target-input span {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+.intention-input {
+  flex: 1 1 100%;
+}
+.intention-banner {
+  text-align: center;
+  font-style: italic;
+  color: var(--accent);
+  background: rgba(178, 157, 251, 0.08);
+  padding: 12px 16px;
+  border-radius: var(--radius-card);
+  margin-bottom: 12px;
+}
+
+/* Overall muscle panel */
+.overall-muscles {
+  margin-bottom: 14px;
+}
+.muscle-toggle-btn {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 6px 0;
+}
+.analysing-tag {
+  color: var(--accent-2);
+}
+
+/* ── Section cards ── */
+.sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  transition:
+    opacity 0.2s var(--ease),
+    box-shadow 0.18s var(--ease);
+}
+.section-dragging {
+  opacity: 0.4;
+}
+.section-dragover {
+  box-shadow: 0 0 0 2px var(--accent), var(--shadow-pop);
+}
+.section-done {
+  opacity: 0.5;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+}
+.drag-handle {
+  color: var(--text-dim);
+  cursor: grab;
+  letter-spacing: -3px;
+  font-size: 0.9rem;
+  padding: 2px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+.expand-toggle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  padding: 0 2px;
+}
+.section-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+.section-name-input {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+}
+.section-title {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.phase-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.section-body {
+  padding: 0 10px 10px;
+}
+
+.section-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Phase selector */
+.phase-selector {
+  position: relative;
+}
+.phase-pill {
+  color: var(--on-accent);
+  font-weight: 650;
+  font-size: 0.78rem;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+}
+.phase-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 170px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.phase-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.85rem;
+  border-left: 3px solid transparent;
+}
+.phase-option:hover {
+  background: var(--bg-hover);
+}
+
+.repeat-input,
+.duration-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+.repeat-input input,
+.duration-input input {
+  width: 48px;
+  padding: 5px 6px;
+}
+.repeat-counter-practice {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  background: rgba(94, 234, 212, 0.12);
+  padding: 2px 7px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.mirror-btn {
+  margin-left: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent-2);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.section-notes-input {
+  width: 100%;
+  resize: vertical;
+  min-height: 34px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+.section-notes-practice {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+/* ── Pose rows ── */
+.poses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pose-row {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 9px;
+}
+.pose-row.pose-key {
+  border-color: rgba(251, 191, 36, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.25);
+}
+
+.pose-edit-line1 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pose-index {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  min-width: 14px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.pose-edit-line2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.side-chip {
+  min-width: 38px;
+  font-weight: 650;
+}
+.side-chip.side-left {
+  color: var(--on-accent);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+.side-chip.side-right {
+  color: var(--on-accent);
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.breath-group {
+  display: inline-flex;
+  gap: 4px;
+}
+.breath-chip {
+  font-size: 0.72rem;
+  padding: 5px 7px;
+}
+.hold-input input {
+  width: 46px;
+  padding: 5px 6px;
+  text-align: center;
+}
+.key-chip {
+  color: var(--amber);
+}
+
+.analysis-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.analysis-pending {
+  background: var(--amber);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.analysis-ready {
+  background: var(--green);
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Touch-visible muscle-analysis error + retry */
+.pose-analysis-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px 9px;
+  border-radius: var(--radius-sm);
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: var(--red);
+  font-size: 0.78rem;
+  text-align: left;
+}
+.pose-analysis-error-text {
+  flex: 1;
+  min-width: 0;
+}
+.pose-analysis-retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+/* Cues */
+.pose-name-input {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+.pose-name-field {
+  width: 100%;
+}
+.pose-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  list-style: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  z-index: 40;
+  max-height: 220px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.pose-suggestion {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.pose-suggestion-active {
+  background: var(--bg-hover);
+}
+.pose-suggestion-name {
+  font-size: 0.9rem;
+}
+.pose-suggestion-sanskrit {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.pose-cues-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+.cue-editor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+.cue-type-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 52px;
+  flex-shrink: 0;
+}
+.cue-text {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 8px;
+  font-size: 0.85rem;
+}
+.pose-cue-add {
+  margin-top: 6px;
+}
+.add-cue-btn {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  padding: 3px 0;
+}
+.cue-type-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.cue-type-chip {
+  font-size: 0.72rem;
+}
+
+.pose-muscle-mini {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+.muscle-mini-tag {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+.muscle-mini-tag b {
+  color: var(--text);
+}
+.muscle-mini-intensity {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.7rem;
+  color: var(--amber);
+  margin-left: auto;
+}
+
+.add-pose-btn,
+.add-section-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: transparent;
+}
+.add-section-btn {
+  margin-top: 12px;
+}
+.add-pose-btn:hover,
+.add-section-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* Section muscle toggle */
+.section-muscle-toggle {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Muscle chart ── */
+.muscle-chart {
+  margin-top: 8px;
+}
+.muscle-chart-title {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.muscle-chart-hint {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+.muscle-bars {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.muscle-bar-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 26px;
+  align-items: center;
+  gap: 8px;
+}
+.muscle-bar-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.muscle-bar-track {
+  height: 8px;
+  background: var(--bg-surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.muscle-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.muscle-bar-value {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-align: right;
+}
+.muscle-chart-compact .muscle-bar-row {
+  grid-template-columns: 88px 1fr 24px;
+}
+
+/* ── Practice mode ── */
+.section-practice .section-head {
+  cursor: pointer;
+}
+.done-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: var(--radius-pill);
+  padding: 4px 9px;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.done-active {
+  background: var(--green);
+  color: var(--on-accent);
+  font-weight: 650;
+}
+
+.pose-row-practice {
+  cursor: pointer;
+}
+.pose-row-practice.pose-done {
+  opacity: 0.45;
+}
+.pose-practice-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pose-practice-check {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--green);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.pose-done .pose-practice-check {
+  background: var(--green);
+  color: var(--on-accent);
+}
+.pose-practice-name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.pose-sanskrit {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+.pose-key-badge {
+  color: var(--amber);
+  flex-shrink: 0;
+}
+.pose-practice-meta {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.side-badge {
+  font-size: 0.7rem;
+  font-weight: 650;
+  background: var(--accent-2);
+  color: var(--on-accent);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+.hold-badge {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  background: var(--bg-surface);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+.pose-practice-cues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+  padding-left: 26px;
+}
+.cue-pill {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Larger screens ── */
+@media (min-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .app {
+    padding-top: calc(20px + var(--safe-top));
+  }
+}
+
+/* ── Gentle entry motion (sections + sequence cards) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .section-card,
+  .seq-card {
+    animation: rise 0.5s var(--ease) both;
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ── Reduced motion: disable all animation / transition ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

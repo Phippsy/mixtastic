@@ -108,6 +108,13 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
     touch({ pairs: pairs.map(p => ({ ...p, expanded: target })) });
   }
 
+  const allComplete = pairs.length > 0 && pairs.every(p => p.completed);
+
+  function toggleCompleteAll() {
+    const target = !allComplete;
+    touch({ pairs: pairs.map(p => ({ ...p, completed: target, expanded: !target })) });
+  }
+
   function handleDragStart(index: number) {
     setDragIdx(index);
   }
@@ -173,6 +180,14 @@ export function SetEditor({ set, onChange, onBack }: SetEditorProps) {
           title={allExpanded ? 'Collapse all tracks' : 'Expand all tracks'}
         >
           {allExpanded ? '▲' : '▼'}
+        </button>
+        <button
+          className={allComplete ? 'btn-complete-all btn-complete-all-active' : 'btn-complete-all'}
+          onClick={toggleCompleteAll}
+          title={allComplete ? 'Mark all pairs not done' : 'Mark all pairs done'}
+          aria-pressed={allComplete}
+        >
+          ✓ All
         </button>
         {mode === 'edit' && <button className="btn-secondary" onClick={clearPairs} title="Clear all pairs">Clear</button>}
       </div>

@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment — NEVER commit your real API keys
+.env
+.env.local
+.env.*.local
+
+# OS / editor
+.DS_Store
+*.log
