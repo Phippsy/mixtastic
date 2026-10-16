@@ -2,6 +2,11 @@
 
 Mixtastic is a Vite + React DJ mix planner deployed to GitHub Pages.
 
+## Cue Points
+
+- Adding a cue point creates a blank row on both tracks, with no preset cue numbers, EQ values, or notes.
+- Cue badge colour selectors have larger click targets for mouse and touch input.
+
 ## Release Checklist
 
 Before pushing a release that should go live on the hosted site:

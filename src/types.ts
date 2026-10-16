@@ -78,14 +78,8 @@ export function createEmptyTransitionSide(): TransitionSide {
 export function createEmptyTransition(): Transition {
   return {
     id: generateId(),
-    left: {
-      ...createEmptyTransitionSide(),
-      cues: [createEmptyCue(8, 'orange')],
-    },
-    right: {
-      ...createEmptyTransitionSide(),
-      cues: [createEmptyCue(2, 'orange')],
-    },
+    left: createEmptyTransitionSide(),
+    right: createEmptyTransitionSide(),
   };
 }
 
